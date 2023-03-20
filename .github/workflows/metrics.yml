@@ -1,0 +1,176 @@
+# https://github.com/lowlighter/metrics/blob/master/README.md
+name: Metrics
+
+on:
+  workflow_dispatch:
+  # https://www.worldtimebuddy.com/?pl=1&lid=100,5206379&h=5206379&hf=0
+  schedule:
+    - cron: 0 9 * * *
+    - cron: 0 21 * * *
+  push:
+    branches:
+      - master
+
+jobs:
+  metrics:
+    name: Metrics
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 🌎 General
+        uses: lowlighter/metrics@latest
+        with:
+          # config
+          filename: general.svg
+          token: ${{ secrets.TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          config_timezone: America/New_York
+          repositories_skipped: Aceheliflyer/Aceheliflyer
+          config_order: base.header, base.repositories, isocalendar, languages
+          # base
+          base: header, repositories
+          base_indepth: yes
+          # isocalendar
+          plugin_isocalendar: yes
+          # languages
+          plugin_languages: yes
+          plugin_languages_threshold: 1%
+          plugin_languages_details: lines, percentage
+          plugin_languages_indepth: yes
+
+      - name: ⌚ Activity
+        uses: lowlighter/metrics@latest
+        with:
+          # config
+          filename: activity.svg
+          token: ${{ secrets.TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          config_timezone: America/New_York
+          repositories_skipped: Aceheliflyer/Aceheliflyer
+          config_order: activity, code
+          # base
+          base: ''
+          # activity
+          plugin_activity: yes
+          plugin_activity_days: 0
+          plugin_activity_timestamps: yes
+          # code
+          plugin_code: yes
+          plugin_code_load: 1000
+          plugin_code_days: 0
+
+      - name: 💻 WakaTime
+        uses: lowlighter/metrics@latest
+        with:
+          # config
+          filename: wakatime.svg
+          token: ${{ secrets.TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          config_timezone: America/New_York
+          repositories_skipped: Aceheliflyer/Aceheliflyer
+          config_order: wakatime
+          # base
+          base: ''
+          # wakatime
+          plugin_wakatime: yes
+          plugin_wakatime_token: ${{ secrets.WAKATIME }}
+
+      - name: 🔁 Habits
+        uses: lowlighter/metrics@latest
+        with:
+          # config
+          filename: habits.svg
+          token: ${{ secrets.TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          config_timezone: America/New_York
+          repositories_skipped: Aceheliflyer/Aceheliflyer
+          config_order: habits
+          # base
+          base: ''
+          # habits
+          plugin_habits: yes
+          plugin_habits_from: 1000
+          plugin_habits_days: 30
+          plugin_habits_facts: no
+          plugin_habits_charts: yes
+
+      - name: 🏆 Achievements
+        uses: lowlighter/metrics@latest
+        with:
+          # config
+          filename: achievements.svg
+          token: ${{ secrets.TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          config_timezone: America/New_York
+          repositories_skipped: Aceheliflyer/Aceheliflyer
+          config_order: achievements
+          # base
+          base: ''
+          # achievements
+          plugin_achievements: yes
+          plugin_achievements_threshold: X
+          plugin_achievements_display: compact
+
+      - name: ⭐ Stars
+        uses: lowlighter/metrics@latest
+        with:
+          # config
+          filename: stars.svg
+          token: ${{ secrets.TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          config_timezone: America/New_York
+          repositories_skipped: Aceheliflyer/Aceheliflyer
+          config_order: topics, stars
+          # base
+          base: ''
+          # topics
+          plugin_topics: yes
+          plugin_topics_mode: icons
+          plugin_topics_limit: 0
+          # stars
+          plugin_stars: yes
+
+      - name: 🎮 Steam
+        uses: lowlighter/metrics@latest
+        with:
+          # config
+          filename: steam.svg
+          token: ${{ secrets.TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          config_timezone: America/New_York
+          repositories_skipped: Aceheliflyer/Aceheliflyer
+          config_order: steam
+          # base
+          base: ''
+          # steam
+          plugin_steam: yes
+          plugin_steam_token: ${{ secrets.STEAM }}
+          plugin_steam_user: '76561198175161826'
+          plugin_steam_achievements_limit: 0
+
+      - name: 🎧 Music
+        uses: lowlighter/metrics@latest
+        with:
+          # config
+          filename: music.svg
+          token: ${{ secrets.TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          config_timezone: America/New_York
+          repositories_skipped: Aceheliflyer/Aceheliflyer
+          config_order: music
+          # base
+          base: ''
+          # music
+          plugin_music: yes
+          plugin_music_provider: spotify
+          plugin_music_token: ${{ secrets.SPOTIFY }}
+          plugin_music_mode: recent
+          plugin_music_played_at: yes

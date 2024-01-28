@@ -26,7 +26,7 @@ jobs:
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
           config_timezone: America/New_York
-          repositories_skipped: Aceheliflyer/Aceheliflyer
+          repositories_skipped: AriRexouium/AriRexouium
           config_order: base.header, base.repositories, isocalendar, languages
           # base
           base: header, repositories
@@ -48,7 +48,7 @@ jobs:
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
           config_timezone: America/New_York
-          repositories_skipped: Aceheliflyer/Aceheliflyer
+          repositories_skipped: AriRexouium/AriRexouium
           config_order: activity, code
           # base
           base: ''
@@ -70,7 +70,7 @@ jobs:
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
           config_timezone: America/New_York
-          repositories_skipped: Aceheliflyer/Aceheliflyer
+          repositories_skipped: AriRexouium/AriRexouium
           config_order: wakatime
           # base
           base: ''
@@ -87,7 +87,7 @@ jobs:
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
           config_timezone: America/New_York
-          repositories_skipped: Aceheliflyer/Aceheliflyer
+          repositories_skipped: AriRexouium/AriRexouium
           config_order: habits
           # base
           base: ''
@@ -107,7 +107,7 @@ jobs:
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
           config_timezone: America/New_York
-          repositories_skipped: Aceheliflyer/Aceheliflyer
+          repositories_skipped: AriRexouium/AriRexouium
           config_order: achievements
           # base
           base: ''
@@ -125,7 +125,7 @@ jobs:
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
           config_timezone: America/New_York
-          repositories_skipped: Aceheliflyer/Aceheliflyer
+          repositories_skipped: AriRexouium/AriRexouium
           config_order: topics, stars
           # base
           base: ''
@@ -145,7 +145,7 @@ jobs:
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
           config_timezone: America/New_York
-          repositories_skipped: Aceheliflyer/Aceheliflyer
+          repositories_skipped: AriRexouium/AriRexouium
           config_order: steam
           # base
           base: ''
@@ -164,7 +164,7 @@ jobs:
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
           config_timezone: America/New_York
-          repositories_skipped: Aceheliflyer/Aceheliflyer
+          repositories_skipped: AriRexouium/AriRexouium
           config_order: music
           # base
           base: ''
